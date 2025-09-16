@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: "Luckiest Guy";
+  src: url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.trans-scroll {
+  transition: transform 0.5s ease-out;
+}
+
+.trans-scroll:active {
+  transition: transform 0.2s ease-out;
+}
+
+@media (hover: hover) {
+  .trans-scroll:hover {
+    transform: translateY(-5px);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #71ff5e;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5adb4c;
+  box-shadow: 0 0 5px rgba(94, 255, 99, 0.7);
+}
+html,
+body {
+  @apply w-full h-full bg-[#0a0a0a] overflow-x-hidden;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+
+body::selection {
+  background: #71ff5e;
+  color: #0a0a0a;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  width: 100%;
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  font-size: clamp(12vw, 26vw, 32vw);
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+h1 strong,
+strong {
+  color: #71ff5e;
+  text-shadow: 0 0 10px rgba(94, 255, 99, 0.7);
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  h1 strong,
+  strong {
+    text-shadow: 0 0 15px rgba(94, 255, 99, 0.7);
+  }
+}
+
+
+
+nav {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+@media (min-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
+}
+.container {
+  overflow: hidden;
+}
+
+.wrapper-container {
+  min-width: 430vw;
+  will-change: transform;
+}
+
+.card-container {
+  position: absolute;
+  width: clamp(200px, 25vw, 300px);
+  height: clamp(200px, 25vw, 300px);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#card1 {
+  top: 55%;
+  left: 15%;
+}
+
+#card2 {
+  top: 25%;
+  left: 40%;
+}
+
+#card3 {
+  top: 40%;
+  left: 55%;
+}
+
+#card4 {
+  top: 10%;
+  left: 80%;
+}
+
+@media (min-width: 768px) {
+  #card1 {
+    left: 20%;
+  }
+  #card2 {
+    left: 47%;
+  }
+  #card3 {
+    left: 60%;
+  }
+  #card4 {
+    left: 90%;
+  }
+}
+
+.outer {
+  position: absolute;
+  width: 100%;
+  top: 120vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 140vh;
+  padding: 1rem;
+}
+
+.outer p {
+  color: white;
+  max-width: 600px;
+  font-size: clamp(18px, 4vw, 30px);
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  top: 250vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(16px, 3vw, 20px);
+  padding: 1rem;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  line-height: 1.2;
+}
+
+a {
+  font-family: "Luckiest Guy", cursive;
+  color: white;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.block-top {
+  @apply h-[100vh] w-[100vw] flex items-center justify-center flex-col p-4 md:p-8 relative;
+}
+
+.blocks-containers-top-inner {
+  @apply flex h-[300vh] w-screen flex-col absolute bottom-0;
+}
+
+.blocks-containers-top {
+  @apply absolute top-[600vh] h-screen w-screen flex overflow-hidden;
+}
+
+.blocks-containers {
+  @apply absolute top-0 h-screen flex overflow-hidden;
+  width: clamp(300vw, 300vw, 400vw);
+}
+
+.keep-scrolling {
+  @apply h-screen w-full flex items-center justify-center absolute;
+}
+
+.blocks-containers-lefts {
+  @apply absolute top-[300vh] right-0 h-screen flex overflow-hidden;
+  width: clamp(300vw, 300vw, 400vw);
+}
+
+.block-left {
+  @apply h-[100vh] w-[100vw] flex items-center justify-center flex-col p-4 md:p-8 relative;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  * {
+    scroll-behavior: auto;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  h1 strong,
+  strong {
+    text-shadow: 0 0 20px rgba(94, 255, 99, 0.8);
+  }
+}
